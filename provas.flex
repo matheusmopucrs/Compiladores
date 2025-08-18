@@ -60,7 +60,7 @@ LPAREN  = "("
 RPAREN  = ")"
 VIRGULA = ","
 WS      = [ \t]
-NL      = \n
+NL      = \r?\n
 
 %%
 
@@ -74,4 +74,5 @@ NL      = \n
 {NL}        { return NEWLINE; }
 {WS}        { /* ignore whitespace */ }
 .           { System.out.println((yyline+1) + ": caracter invalido: " + yytext()); }
+
 <<EOF>>     { return YYEOF; }
